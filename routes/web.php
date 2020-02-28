@@ -13,4 +13,18 @@
 
 Route::get('/', function () {
     return view('backend.doctor.index');
+
+
 });
+
+Route::get('gethome', function () {
+    echo "I'm get home";
+
+
+});
+
+
+
+
+
+
