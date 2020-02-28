@@ -13,7 +13,16 @@
 
 Route::get('/', function () {
     return view('backend.doctor.index');
+
+
 });
+
+Route::get('gethome', function () {
+    echo "I'm get home";
+
+
+});
+
 
 Route::get('/getcontact', function () {
 
@@ -21,6 +30,9 @@ echo "I am getcontact";
 
 });
 
-Route::get('/', function () {
-    return view('backend.doctor.index');
-});
+
+
+
+
+
+
