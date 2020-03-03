@@ -19,6 +19,7 @@
 	<thead>
 		<tr>
 			<th scope="col">#</th>
+			<th scope="col">ID</th>
 			<th scope="col">Name</th>
 			<th scope="col">Address</th>
 			<th scope="col">Phone</th>
@@ -35,7 +36,7 @@
 			<td>{{$row->user->name}}</td>
 			<td>{{$row->address}}</td>
 			<td>{{$row->phone}}</td>
-			<td>{{$row->degree_id}}</td>
+			<td>{{$row->degree->name}}</td>
 			<td><a href="{{route('doctor.show', $row->id)}}" class="btn btn-info">Detail</a>
 				<a href="{{route('doctor.edit',$row->id)}}" class="btn btn-warning">Edit</a>
 				<form method="post" action="{{route('doctor.destroy',$row->id)}}" class="d-inline-flex"onsubmit="return confirm('Are You Sure To Want To Delete?')">

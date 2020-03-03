@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Doctor;
 use App\User;
 use App\Degree;
+use Spatie\Permission\Models\Role;
+
 
 class DoctorController extends Controller
 {
@@ -42,16 +44,16 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     "name"=>'required|min:5|max:191',
-        //     "email"=>'required|unique',
-        //     "profi"=>'required|mimes:jpeg,jpg,png',
-        //     "address"=>'required',
-        //     "phone"=>'required|min:5|max:191',
-        //     "gridRadios"=>'required',
-        //     "Dob"=>'required'
+        $request->validate([
+            "name"=>'required|min:5|max:191',
+            "email"=>'required|unique',
+            "profi"=>'required|mimes:jpeg,jpg,png',
+            "address"=>'required',
+            "phone"=>'required|min:5|max:191',
+            "gridRadios"=>'required',
+            "Dob"=>'required'
 
-        // ]);
+        ]);
         if ($request->hasfile('profi')) 
         {
          $profi = $request->file('profi');
@@ -66,15 +68,11 @@ class DoctorController extends Controller
         $user->name=request('name');
         $user->email=request('email');
         $user->password=Hash::make('12345');
-        
-
         $user->save();
-        $user->assignRole('Doctor');
         
         $doctors = new Doctor;
         $doctors->user_id=$user->id;
-
-        $doctors=new Doctor;
+       // $doctors=new Doctor;
         $doctors->profile =$path;
         $doctors->address=request ('address');
         $doctors->phone=request ('phone');
@@ -82,6 +80,9 @@ class DoctorController extends Controller
         $doctors->dob=request ('Dob');
         $doctors->degree_id=request('degree');
         $doctors->save();
+        
+        $user->assignRole('Doctor');
+
         return redirect()->route('doctor.index');
     }
 
@@ -107,7 +108,7 @@ class DoctorController extends Controller
     {
         $doctors=Doctor::find($id);
         $degrees=Degree::all();
-        return view('backend.doctors.edit',compact('doctors','degrees'));
+        return view('backend.doctor.edit',compact('doctors','degrees'));
     }
 
     /**
@@ -120,14 +121,12 @@ class DoctorController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            "name"=>'required|min:5|max:191',
             "address"=>'required',
             "profi"=>'required|mimes:jpeg,jpg,png',
             "phone"=>'required|min:5|max:191',
-            "email"=>'required|unique',
             "gridRadios"=>'required',
-            "Dob"=>'required',
-            "degree"=>'required'
+            "degree"=>'required',
+            "Dob"=>'required'
 
         ]);
         if ($request->hasfile('profi')) 
@@ -141,20 +140,7 @@ class DoctorController extends Controller
      }
      else{
         $path = request('oldprofi');
-    } 
-
-    $user=New User;
-    $user->name=request('name');
-    $user->email=request('email');
-    $user->password=Hash::make('12345');
-
-
-    $user->save();
-    $user->assignRole('Doctor');
-
-    $doctors = new Doctor;
-    $doctors->user_id=$user->id;
-
+    }
     $doctors=Doctor::find($id);
     $doctors->profile =$path;
     $doctors->address=request ('address');
