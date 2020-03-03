@@ -15,7 +15,18 @@ class CreateDoctorsTable extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->text('profile');
+            $table->text('address');
+            $table->string('phone');
+            $table->string('gender');
+            $table->date('dob');
+            $table->unsignedBigInteger('degree_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('degree_id')->references('id')->on('degrees')->onDelete('cascade');
+
         });
     }
 

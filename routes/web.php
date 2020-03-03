@@ -29,7 +29,8 @@ Route::get('/getcontact', function () {
 echo "I am getcontact";
 
 });
-
+Route::resource('degree','DegreeController');
+Route::resource('doctor','DoctorController');
 
 
 
