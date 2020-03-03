@@ -31,6 +31,7 @@ echo "I am getcontact";
 });
 Route::resource('degree','DegreeController');
 Route::resource('doctor','DoctorController');
+Route::resource('patient','PatientController');
 
 
 

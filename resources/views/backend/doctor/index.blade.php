@@ -5,11 +5,11 @@
 <div class="card-header py-3">
 	<div class="row">
 		<div class="col-10">
-			<h6 class="m-0 font-weight-bold text-primary">List</h6>
+			<h6 class="m-0 font-weight-bold text-primary"> Doctors List</h6>
 
 		</div>
 		<div class="col-2">
-			<a href="{{route('doctor.create')}}" class="btn btn-outline-primary btn-block"><i class="fas fa-plus"></i>Add New</a>
+			<a href="{{route('doctor.create')}}" class="btn btn-outline-success btn-block"><i class="fas fa-plus"></i>Add New</a>
 		</div>
 
 	</div>
@@ -37,7 +37,7 @@
 			<td>{{$row->address}}</td>
 			<td>{{$row->phone}}</td>
 			<td>{{$row->degree->name}}</td>
-			<td><a href="{{route('doctor.show', $row->id)}}" class="btn btn-info">Detail</a>
+			<td><a href="{{route('doctor.show', $row->id)}}" class="btn btn-success">Detail</a>
 				<a href="{{route('doctor.edit',$row->id)}}" class="btn btn-warning">Edit</a>
 				<form method="post" action="{{route('doctor.destroy',$row->id)}}" class="d-inline-flex"onsubmit="return confirm('Are You Sure To Want To Delete?')">
 					@csrf

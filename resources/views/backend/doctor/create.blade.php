@@ -2,9 +2,11 @@
 
 @section('content')
 
+<div class="container">
+  <h2>Register Doctor</h2>
 <form class="col-lg-11" method="post" action="{{route('doctor.store')}}" enctype="multipart/form-data">@csrf
 
-<div class="container">
+
   <div class="form-group row">
     <label for="inputName" class="col-sm-2 col-form-label">Name</label>
     <div class="col-sm-10">

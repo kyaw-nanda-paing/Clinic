@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Http\Request;
+use App\User;
+use App\Patient;
+use Spatie\Permission\Models\Role;
 
 class PatientController extends Controller
 {
@@ -13,7 +18,8 @@ class PatientController extends Controller
      */
     public function index()
     {
-        //
+        $patients = Patient::all();
+        return view('backend.patient.index',compact('patients'));
     }
 
     /**
@@ -23,7 +29,9 @@ class PatientController extends Controller
      */
     public function create()
     {
-        //
+        $user=User::all();
+        $patients=Patient::all();
+        return view('backend.patient.create',compact('patients'));
     }
 
     /**

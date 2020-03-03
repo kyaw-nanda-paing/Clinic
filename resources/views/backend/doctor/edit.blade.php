@@ -4,7 +4,7 @@
 
 <div class="container">
 
-  <h2>Show With Form/ old value</h2>
+  <h2> Edit Your Doctor</h2>
 
   <div class="row">
     <div class="col-md-12">
@@ -12,11 +12,11 @@
       <div class="card-header py-3">
         <div class="row">
           <div class="col-10">
-           <h6 class="m-0 font-weight-bold text-primary">List</h6>
+           <h6 class="m-0 font-weight-bold text-primary"> Doctors Detail </h6>
 
          </div>
          <div class="col-2">
-          <a href="{{route('degree.index')}}" class="btn btn-outline-primary btn-block"><i class="fas fa-plus"></i> Back </a>
+          <a href="{{route('degree.index')}}" class="btn btn-outline-warning btn-block"><i class="fas fa-minus"></i> Back </a>
         </div>
 
       </div>
