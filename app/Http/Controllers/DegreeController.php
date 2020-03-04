@@ -36,28 +36,28 @@ class DegreeController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-                "name"=>'required|min:5|max:191',
-                "photo"=>'required|mimes:jpeg,jpg,png'
+        // $request->validate([
+        //     "name"=>'required|min:5|max:191',
+        //     "photo"=>'required|mimes:jpeg,jpg,png'
 
-        ]);
+        // ]);
         if ($request->hasfile('photo')) 
         {
-           $photo = $request->file('photo');
-           $upload_dir = public_path().'/storage/degree/';
-           $name = time().'.'.$photo->
-           getClientOriginalExtension();
-           $photo->move($upload_dir,$name);
-           $path = '/storage/degree/'.$name;
-        }  
-        $degree = new Degree;
-        $degree->name = request('name');
-        $degree->photo =$path;
+         $photo = $request->file('photo');
+         $upload_dir = public_path().'/storage/degree/';
+         $name = time().'.'.$photo->
+         getClientOriginalExtension();
+         $photo->move($upload_dir,$name);
+         $path = '/storage/degree/'.$name;
+     }  
+     $degree = new Degree;
+     $degree->name = request('name');
+     $degree->photo =$path;
 
-        $degree->save();
+     $degree->save();
 
-        return redirect()->route('degree.index');
-    }
+     return redirect()->route('degree.index');
+ }
 
     /**
      * Display the specified resource.
@@ -95,19 +95,19 @@ class DegreeController extends Controller
     public function update(Request $request, $id)
     {
         
-        $request->validate([
-                "name"=>'required|min:5|max:191',
-                "photo"=>'required|mimes:jpeg,jpg,png'
+        // $request->validate([
+        //     "name"=>'required|min:5|max:191',
+        //     "photo"=>'required|mimes:jpeg,jpg,png'
 
-        ]);
+        // ]);
         if ($request->hasfile('photo')) 
         {
-           $photo = $request->file('photo');
-           $upload_dir = public_path().'/storage/degree/';
-           $name = time().'.'.$photo->
-           getClientOriginalExtension();
-           $photo->move($upload_dir,$name);
-           $path = '/storage/degree/'.$name;
+         $photo = $request->file('photo');
+         $upload_dir = public_path().'/storage/degree/';
+         $name = time().'.'.$photo->
+         getClientOriginalExtension();
+         $photo->move($upload_dir,$name);
+         $path = '/storage/degree/'.$name;
         }        //upload//3
         //store data//4
         $degree = Degree::find($id);
@@ -129,6 +129,6 @@ class DegreeController extends Controller
     {
         $degrees = Degree::find($id);
         $degrees->delete();
-                return redirect()->route('degree.index');
+        return redirect()->route('degree.index');
     }
 }

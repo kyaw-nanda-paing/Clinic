@@ -41,14 +41,14 @@ class ScheduleController extends Controller
     {
         $request->validate([
             "doctor"=>'required',
-                "date"=>'required',
-                "time"=>'required',
-                
+            "date"=>'required',
+            "time"=>'required',
+            
 
         ]);
 
-               $schedules = new Schedule;
-               $schedules->doctor_id= request('doctor');
+        $schedules = new Schedule;
+        $schedules->doctor_id= request('doctor');
         $schedules->date = request('date');
         $schedules->time = request('time');
         
@@ -65,7 +65,7 @@ class ScheduleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-       {
+    {
         $schedules = Schedule::findOrFail($id);
         return view('backend.scheduled.show',compact('schedules'));
     }
@@ -77,7 +77,7 @@ class ScheduleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
- {
+    {
 
         $schedules = Schedule::find($id);
         return view('backend.schedule.edit',compact('schedules'));
@@ -93,15 +93,15 @@ class ScheduleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-        {
+    {
         $request->validate([
-                "doctor_id"=>'required',
-                "date"=>'required',
-                "time"=>'required',
+            "doctor_id"=>'required',
+            "date"=>'required',
+            "time"=>'required',
 
         ]);
-               $schedules = Schedule::find();
-               $schedules->doctor_id= request('doctor_id');
+        $schedules = Schedule::find();
+        $schedules->doctor_id= request('doctor_id');
         $schedules->date = request('date');
         $schedules->time = request('time');
 
@@ -117,9 +117,9 @@ class ScheduleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-     {
+    {
         $schedules = Schedule::find($id);
         $schedules->delete();
-                return redirect()->route('schedule.index');
+        return redirect()->route('schedule.index');
     }
 }

@@ -56,35 +56,35 @@ class DoctorController extends Controller
         // ]);
         if ($request->hasfile('profi')) 
         {
-         $profi = $request->file('profi');
-         $upload_dir = public_path().'/storage/doctor/';
-         $name = time().'.'.$profi->
-         getClientOriginalExtension();
-         $profi->move($upload_dir,$name);
-         $path = '/storage/doctor/'.$name;
-        } 
+           $profi = $request->file('profi');
+           $upload_dir = public_path().'/storage/doctor/';
+           $name = time().'.'.$profi->
+           getClientOriginalExtension();
+           $profi->move($upload_dir,$name);
+           $path = '/storage/doctor/'.$name;
+       } 
 
-        $user=New User;
-        $user->name=request('name');
-        $user->email=request('email');
-        $user->password=Hash::make('12345');
-        $user->save();
-        
-        $doctors = new Doctor;
-        $doctors->user_id=$user->id;
+       $user=New User;
+       $user->name=request('name');
+       $user->email=request('email');
+       $user->password=Hash::make('12345');
+       $user->save();
+       
+       $doctors = new Doctor;
+       $doctors->user_id=$user->id;
        // $doctors=new Doctor;
-        $doctors->profile =$path;
-        $doctors->address=request ('address');
-        $doctors->phone=request ('phone');
-        $doctors->gender=request ('gridRadios');
-        $doctors->dob=request ('Dob');
-        $doctors->degree_id=request('degree');
-        $doctors->save();
-        
-        $user->assignRole('Doctor');
+       $doctors->profile =$path;
+       $doctors->address=request ('address');
+       $doctors->phone=request ('phone');
+       $doctors->gender=request ('gridRadios');
+       $doctors->dob=request ('Dob');
+       $doctors->degree_id=request('degree');
+       $doctors->save();
+       
+       $user->assignRole('Doctor');
 
-        return redirect()->route('doctor.index');
-    }
+       return redirect()->route('doctor.index');
+   }
 
     /**
      * Display the specified resource.
@@ -120,25 +120,25 @@ class DoctorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            "address"=>'required',
-            "profi"=>'required|mimes:jpeg,jpg,png',
-            "phone"=>'required|min:5|max:191',
-            "gridRadios"=>'required',
-            "degree"=>'required',
-            "Dob"=>'required'
+        // $request->validate([
+        //     "address"=>'required',
+        //     "profi"=>'required|mimes:jpeg,jpg,png',
+        //     "phone"=>'required|min:5|max:191',
+        //     "gridRadios"=>'required',
+        //     "degree"=>'required',
+        //     "Dob"=>'required'
 
-        ]);
+        // ]);
         if ($request->hasfile('profi')) 
         {
-         $profi = $request->file('profi');
-         $upload_dir = public_path().'/storage/doctor/';
-         $name = time().'.'.$profi->
-         getClientOriginalExtension();
-         $profi->move($upload_dir,$name);
-         $path = '/storage/doctor/'.$name;
-     }
-     else{
+           $profi = $request->file('profi');
+           $upload_dir = public_path().'/storage/doctor/';
+           $name = time().'.'.$profi->
+           getClientOriginalExtension();
+           $profi->move($upload_dir,$name);
+           $path = '/storage/doctor/'.$name;
+       }
+       else{
         $path = request('oldprofi');
     }
     $doctors=Doctor::find($id);

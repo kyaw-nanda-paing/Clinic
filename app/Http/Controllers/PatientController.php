@@ -51,39 +51,39 @@ class PatientController extends Controller
         //     "email"=>'required|unique',
         //     "Dob"=>'required',
         //     "gridRadios"=>'required',
-            
+        
 
         // ]);
         if ($request->hasfile('profi')) 
         {
-         $profi = $request->file('profi');
-         $upload_dir = public_path().'/storage/patient/';
-         $name = time().'.'.$profi->
-         getClientOriginalExtension();
-         $profi->move($upload_dir,$name);
-         $path = '/storage/patient/'.$name;
-        } 
+           $profi = $request->file('profi');
+           $upload_dir = public_path().'/storage/patient/';
+           $name = time().'.'.$profi->
+           getClientOriginalExtension();
+           $profi->move($upload_dir,$name);
+           $path = '/storage/patient/'.$name;
+       } 
 
-        $user=New User;
-        $user->name=request('name');
-        $user->email=request('email');
-        $user->password=Hash::make('6789');
-        $user->save();
-        
-        $patients = new Patient;
-        $patients->user_id=$user->id;
+       $user=New User;
+       $user->name=request('name');
+       $user->email=request('email');
+       $user->password=Hash::make('6789');
+       $user->save();
+       
+       $patients = new Patient;
+       $patients->user_id=$user->id;
        // $patients=new Patient;
-        $patients->profile =$path;
-        $patients->address=request ('address');
-        $patients->phone=request ('phone');
-        $patients->gender=request ('gridRadios');
-        $patients->dob=request ('Dob');
-        $patients->save();
-        
-        $user->assignRole('Patient');
+       $patients->profile =$path;
+       $patients->address=request ('address');
+       $patients->phone=request ('phone');
+       $patients->gender=request ('gridRadios');
+       $patients->dob=request ('Dob');
+       $patients->save();
+       
+       $user->assignRole('Patient');
 
-        return redirect()->route('patient.index');
-    }
+       return redirect()->route('patient.index');
+   }
 
     /**
      * Display the specified resource.
@@ -118,24 +118,24 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            "address"=>'required',
-            "profi"=>'required|mimes:jpeg,jpg,png',
-            "phone"=>'required|min:5|max:191',
-            "gridRadios"=>'required',
-            "Dob"=>'required'
+        // $request->validate([
+        //     "address"=>'required',
+        //     "profi"=>'required|mimes:jpeg,jpg,png',
+        //     "phone"=>'required|min:5|max:191',
+        //     "gridRadios"=>'required',
+        //     "Dob"=>'required'
 
-        ]);
+        // ]);
         if ($request->hasfile('profi')) 
         {
-         $profi = $request->file('profi');
-         $upload_dir = public_path().'/storage/patient/';
-         $name = time().'.'.$profi->
-         getClientOriginalExtension();
-         $profi->move($upload_dir,$name);
-         $path = '/storage/patient/'.$name;
-     }
-     else{
+           $profi = $request->file('profi');
+           $upload_dir = public_path().'/storage/patient/';
+           $name = time().'.'.$profi->
+           getClientOriginalExtension();
+           $profi->move($upload_dir,$name);
+           $path = '/storage/patient/'.$name;
+       }
+       else{
         $path = request('oldprofi');
     }
     $patients=Patient::find($id);
@@ -147,7 +147,7 @@ class PatientController extends Controller
     $patients->save();
 
     return redirect()->route('patient.index');
-    }
+}
 
     /**
      * Remove the specified resource from storage.
