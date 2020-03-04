@@ -50,9 +50,9 @@
     </div>
   </div>
     <div class="form-group row">
-    <label for="inputTime" class="col-sm-2 col-form-label">Doctor Id</label>
+    <label for="inputTime" class="col-sm-2 col-form-label">Doctor Name</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="inputNumber" name="number" value="{{($schedules->Number)}}">
+      <input type="number" class="form-control" id="inputNumber" name="doctor_id" value="{{($schedules->doctor_id)}}">
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Update</button>

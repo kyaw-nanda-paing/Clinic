@@ -8,6 +8,6 @@ class FrontController extends Controller
 {
     public function index($value='')
     {
-    	return view('frontend.index');
+    	return view('frontend.doctor');
     }
 }

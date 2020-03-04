@@ -17,7 +17,7 @@ class CreateSchedulesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('doctor_id');
             $table->date('date');
-            $table->string('time');
+            $table->time('time');
             $table->timestamps();
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
         });
