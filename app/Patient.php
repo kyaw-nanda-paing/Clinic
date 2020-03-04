@@ -12,4 +12,9 @@ class Patient extends Model
       {
       	return $this->belongsTo('App\User');
       }
+
+      public function booking($value='')
+      {
+      	return $this->hasMany('App\Booking');
+      }
 }

@@ -16,11 +16,15 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('note');
-            $table->bigIncrements('patient_id');
-            $table->bigIncrements('schtdule_id');
-            $table->bigIncrements('doctor_id');
-            $table->bigIncrements('id');
+            $table->unsignedBigInteger('patient_id');
+            $table->unsignedBigInteger('schedule_id');
+            $table->unsignedBigInteger('doctor_id');
+            $table->string('token_no');
             $table->timestamps();
+
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
+            $table->foreign('schedule_id')->references('id')->on('schedules')->onDelete('cascade');
+            $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
         });
     }
 
