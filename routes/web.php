@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('backend.doctor.index');
+    return view('backend');
 
 
 });
