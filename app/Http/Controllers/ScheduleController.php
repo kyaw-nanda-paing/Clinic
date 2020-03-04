@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Degree;
+use App\Schedule;
 class ScheduleController extends Controller
 {
     /**
@@ -13,7 +14,8 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        //
+        $schedules = Schedule::all();
+        return view('backend.schedule.index',compact('schedules'));
     }
 
     /**
@@ -23,7 +25,11 @@ class ScheduleController extends Controller
      */
     public function create()
     {
-        //
+    
+        $schedules=Schedule::all();
+        $schedules=Schedule::all();
+        return view('backend.schedule.create',compact('schedules'));
+
     }
 
     /**
@@ -34,7 +40,20 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+                "date"=>'required',
+                "time"=>'required',
+                "doctor_id"=>'required'
+
+        ]);
+               $schedules = new Schedule;
+        $schedules->date = request('date');
+        $schedules->time = request('time');
+        $schedules->doctor_id= request('doctor_id');
+
+        $schedules->save();
+
+        return redirect()->route('schedule.index');
     }
 
     /**
@@ -44,8 +63,9 @@ class ScheduleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+       {
+        $schedules = Schedule::findOrFail($id);
+        return view('backend.scheduled.show',compact('schedules'));
     }
 
     /**
@@ -55,9 +75,13 @@ class ScheduleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+ {
+
+        $schedules = Schedule::find($id);
+        return view('backend.schedule.edit',compact('schedules'));
+
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -67,8 +91,21 @@ class ScheduleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+        {
+        $request->validate([
+                "date"=>'required',
+                "time"=>'required',
+                "doctor_id"=>'required'
+
+        ]);
+               $schedules = new Schedule;
+        $schedules->date = request('date');
+        $schedules->time = request('time');
+        $schedules->doctor_id= request('doctor_id');
+
+        $schedules->save();
+
+        return redirect()->route('schedule.index');
     }
 
     /**
@@ -78,7 +115,9 @@ class ScheduleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+     {
+        $schedules = Schedule::find($id);
+        $schedules->delete();
+                return redirect()->route('schedule.index');
     }
 }
