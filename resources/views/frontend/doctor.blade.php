@@ -2,22 +2,6 @@
 
 @section('dmryay')
 
-<!DOCTYPE html>
-<html lang="en" >
-
-<head>
-  <meta charset="UTF-8">
-  <title>Bootstrap 2 Moving Box Carousel</title>
-  
-  
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css'>
-
-      <link rel="stylesheet" href="{{asset('clinic_frontend/vendor/bootstrap/css/style.css')}}">
-
-  
-</head>
-
-<body>
 
   <div class="container-fluid">
 <div class="row-fluid">
@@ -174,31 +158,8 @@
 </div><!-- /.span12 -->          
 </div><!-- /.row --> 
 </div><!-- /.container -->
-
-                            
-<!-- Delete This -->                        
-<div class="footer">
-<a href="http://simonalex.com/">&hearts; Redfrost</a> | <a href="https://twitter.github.com/bootstrap/">Get Bootstrap</a> | <a href="http://placehold.it/">Get Placeholder</a>   
-    <p class="right">&lsaquo; Resize Window &rsaquo;</p>
-    <p>&nbsp;</p>
-    <p><strong>*VISIT THIS LINK FOR IE9 FIX: <a href="https://codepen.io/redfrost/pen/yKAmc"  target="_blank">https://codepen.io/redfrost/pen/yKAmc</a>
-        
-        
-<strong></p>    
-</div>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js'></script>
-
   
 
-    <script  src="{{asset('clinic_frontend/vendor/bootstrap/js/index.js')}}"></script>
-
-
-
-
-</body>
-
-</html>
 
 
 @endsection

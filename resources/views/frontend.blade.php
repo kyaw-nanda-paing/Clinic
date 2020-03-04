@@ -15,6 +15,9 @@
   <link href="{{asset('clinic_frontend/vendor/bootstrap/css/style.css')}}" rel="stylesheet">
 
   <link href="{{asset('clinic_frontend/css/heroic-features.css')}}" rel="stylesheet">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="{{asset('clinic_frontend/vendor/bootstrap/css/style.css')}}">
 
 </head>
 
@@ -60,6 +63,12 @@
 
   <script src="{{asset('clinic_frontend/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('clinic_frontend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js'></script>
+
+  
+
+    <script  src="{{asset('clinic_frontend/vendor/bootstrap/js/index.js')}}"></script>
 
 </body>
 
