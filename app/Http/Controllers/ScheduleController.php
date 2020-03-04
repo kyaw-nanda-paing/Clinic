@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Degree;
+use App\Doctor;
 use App\Schedule;
 class ScheduleController extends Controller
 {
@@ -25,10 +25,9 @@ class ScheduleController extends Controller
      */
     public function create()
     {
-    
+        $doctors=Doctor::all();
         $schedules=Schedule::all();
-        $schedules=Schedule::all();
-        return view('backend.schedule.create',compact('schedules'));
+        return view('backend.schedule.create',compact('schedules','doctors'));
 
     }
 
@@ -41,15 +40,18 @@ class ScheduleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            "doctor"=>'required',
                 "date"=>'required',
                 "time"=>'required',
-                "doctor_id"=>'required'
+                
 
         ]);
+
                $schedules = new Schedule;
+               $schedules->doctor_id= request('doctor');
         $schedules->date = request('date');
         $schedules->time = request('time');
-        $schedules->doctor_id= request('doctor_id');
+        
 
         $schedules->save();
 
@@ -93,15 +95,15 @@ class ScheduleController extends Controller
     public function update(Request $request, $id)
         {
         $request->validate([
+                "doctor_id"=>'required',
                 "date"=>'required',
                 "time"=>'required',
-                "doctor_id"=>'required'
 
         ]);
-               $schedules = new Schedule;
+               $schedules = Schedule::find();
+               $schedules->doctor_id= request('doctor_id');
         $schedules->date = request('date');
         $schedules->time = request('time');
-        $schedules->doctor_id= request('doctor_id');
 
         $schedules->save();
 

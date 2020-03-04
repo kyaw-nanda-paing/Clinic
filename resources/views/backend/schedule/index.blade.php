@@ -5,11 +5,11 @@
 <div class="card-header py-3">
 	<div class="row">
 		<div class="col-10">
-			<h6 class="m-0 font-weight-bold text-primary">List</h6>
+			<h6 class="m-0 font-weight-bold text-primary">Duty Time</h6>
 
 		</div>
 		<div class="col-2">
-			<a href="{{route('degree.create')}}" class="btn btn-outline-primary btn-block"><i class="fas fa-plus"></i>Add New</a>
+			<a href="{{route('schedule.create')}}" class="btn btn-outline-primary btn-block"><i class="fas fa-plus"></i>Add New</a>
 		</div>
 
 	</div>
@@ -22,13 +22,13 @@
 
 			<th scope="col">Date</th>
 			<th scope="col">Time</th>
-			<th scope="col">Doctor Id</th>
+			<th scope="col">Doctor Name</th>
 			<th scope="col">Action</th>
 		</tr>
 	</thead>
 	<tbody>
 		@php $i=1; @endphp
-		@foreach($degrees as $row)
+		@foreach($schedules as $row)
 		<tr>
 			<td>{{$i++}}</td>
 			<td>{{$row->date}}</td>

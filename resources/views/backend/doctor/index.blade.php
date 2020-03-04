@@ -31,7 +31,7 @@
 		@php $i=1; @endphp
 		@foreach($doctors as $row)
 		<tr>
-			<td>{{$i}}</td>
+			<td>{{$i++}}</td>
 			<td>{{$row->id}}</td>
 			<td>{{$row->user->name}}</td>
 			<td>{{$row->address}}</td>

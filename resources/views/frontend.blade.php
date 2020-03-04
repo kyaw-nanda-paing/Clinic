@@ -8,13 +8,13 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Heroic Features - Start Bootstrap Template</title>
+  <title> Clinic </title>
 
   <!-- Bootstrap core CSS -->
   <link href="{{asset('clinic_frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('clinic_frontend/vendor/bootstrap/css/style.css')}}" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="{{asset('clinic_frontendcss/heroic-features.css')}}" rel="stylesheet">
+  <link href="{{asset('clinic_frontend/css/heroic-features.css')}}" rel="stylesheet">
 
 </head>
 
@@ -51,16 +51,15 @@
   @yield('dmryay')
 
   <!-- Footer -->
-  <footer class="py-5 bg-success">
+  <footer class="py-5 bg-primary">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Clinic Website 2020</p>
     </div>
     <!-- /.container -->
   </footer>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="{{asset('clinic_frontendvendor/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('clinic_frontendvendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('clinic_frontend/vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('clinic_frontend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
 </body>
 

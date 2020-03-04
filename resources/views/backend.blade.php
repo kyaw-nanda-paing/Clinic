@@ -65,6 +65,7 @@
             <h6 class="collapse-header">Profiles:</h6>
             <a class="collapse-item" href="{{route('doctor.index')}}">Doctors</a>
             <a class="collapse-item" href="{{route('patient.index')}}">Patients</a>
+            <a class="collapse-item" href="{{route('degree.index')}}">Degree</a>
           </div>
         </div>
       </li>
