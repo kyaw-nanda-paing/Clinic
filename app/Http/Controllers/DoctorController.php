@@ -44,16 +44,16 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            "name"=>'required|min:5|max:191',
-            "email"=>'required|unique',
-            "profi"=>'required|mimes:jpeg,jpg,png',
-            "address"=>'required',
-            "phone"=>'required|min:5|max:191',
-            "gridRadios"=>'required',
-            "Dob"=>'required'
+        // $request->validate([
+        //     "name"=>'required|min:5|max:191',
+        //     "email"=>'required|unique',
+        //     "profi"=>'required|mimes:jpeg,jpg,png',
+        //     "address"=>'required',
+        //     "phone"=>'required|min:5|max:191',
+        //     "gridRadios"=>'required',
+        //     "Dob"=>'required'
 
-        ]);
+        // ]);
         if ($request->hasfile('profi')) 
         {
          $profi = $request->file('profi');

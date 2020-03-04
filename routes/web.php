@@ -38,5 +38,5 @@ Route::resource('booking','BookingController');
 
 
 
-
+Route::get('frontend','FrontController@index')->name('index');
 
