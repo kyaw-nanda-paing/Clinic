@@ -39,4 +39,11 @@ Route::resource('booking','BookingController');
 
 
 Route::get('frontend','FrontController@index')->name('index');
+// Route::get('register','FrontController@register')->name('patient');
+// Route::get('user_booking','FrontController@bookng')->name('booking');
+// Route::get('contact','FrontController@contact')->name('contact');
+Route::get('doctor_list','FrontController@doctor')->name('doctor');
+Route::get('patient_list','FrontController@patient')->name('patient');
+// Route::get('schedule_list','FrontController@schedule')->name('schedule');
+// Route::get('about','FrontController@about')->name('about');
 

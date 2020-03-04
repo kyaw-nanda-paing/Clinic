@@ -43,17 +43,17 @@ class PatientController extends Controller
     public function store(Request $request)
     {
         // dd($request);
-        $request->validate([
-            "name"=>'required|min:5|max:191',
-            "profi"=>'required',
-            "address"=>'required',
-            "phone"=>'required|min:5|max:191',
-            "email"=>'required|unique',
-            "Dob"=>'required',
-            "gridRadios"=>'required',
+        // $request->validate([
+        //     "name"=>'required|min:5|max:191',
+        //     "profi"=>'required',
+        //     "address"=>'required',
+        //     "phone"=>'required|min:5|max:191',
+        //     "email"=>'required|unique',
+        //     "Dob"=>'required',
+        //     "gridRadios"=>'required',
             
 
-        ]);
+        // ]);
         if ($request->hasfile('profi')) 
         {
          $profi = $request->file('profi');

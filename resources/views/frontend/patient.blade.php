@@ -6,9 +6,9 @@
         <div class="container-fluid">
 <div class="row">
 	<div class="col-12">
-                    <h2>The Medical Team</h2>
+                    <h2> Welcome </h2>
                 </div>
-	@foreach($doctors as $row)
+	@foreach($patients as $row)
 	<div class="col-md-6 col-lg-4">
 		<div class="medical-team-wrap mx-4">
 		<a href=""></a><img src="{{$row->profile}}" onmouseover="bigImg(this)" onmouseout="normalImg(this)" alt="" width="250">
