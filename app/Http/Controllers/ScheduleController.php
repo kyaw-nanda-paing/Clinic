@@ -41,16 +41,17 @@ class ScheduleController extends Controller
     {
         $request->validate([
             "doctor"=>'required',
-            "date"=>'required',
-            "time"=>'required',
-            
+            "day"=>'required',
+            "start_time"=>'required',
+            "end_time"=>'required',
 
         ]);
 
         $schedules = new Schedule;
         $schedules->doctor_id= request('doctor');
-        $schedules->date = request('date');
-        $schedules->time = request('time');
+        $schedules->day = request('day');
+        $schedules->start_time = request('start_time');
+        $schedules->end_time = request('end_time');
         
 
         $schedules->save();
@@ -95,15 +96,17 @@ class ScheduleController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            "doctor_id"=>'required',
-            "date"=>'required',
-            "time"=>'required',
+            "doctor"=>'required',
+            "day"=>'required',
+            "start_time"=>'required',
+            "end_time"=>'required',
 
         ]);
-        $schedules = Schedule::find();
-        $schedules->doctor_id= request('doctor_id');
-        $schedules->date = request('date');
-        $schedules->time = request('time');
+        $schedules = Schedule::find($id);
+        $schedules->doctor_id= request('doctor');
+        $schedules->day = request('day');
+        $schedules->start_time = request('start_time');
+        $schedules->end_time = request('end_time');
 
         $schedules->save();
 
@@ -121,5 +124,11 @@ class ScheduleController extends Controller
         $schedules = Schedule::find($id);
         $schedules->delete();
         return redirect()->route('schedule.index');
+    }
+
+    public function getSchedule($id){
+        // dd($id);
+        $schedule = Schedule::where('doctor_id',$id)->get();
+        return response()->json($schedule);
     }
 }

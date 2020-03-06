@@ -18,13 +18,11 @@ class CreateBookingsTable extends Migration
             $table->text('note');
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('schedule_id');
-            $table->unsignedBigInteger('doctor_id');
             $table->string('token_no');
             $table->timestamps();
 
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->foreign('schedule_id')->references('id')->on('schedules')->onDelete('cascade');
-            $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
         });
     }
 

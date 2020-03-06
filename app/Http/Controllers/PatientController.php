@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Patient;
 use Spatie\Permission\Models\Role;
+use Auth;
 
 class PatientController extends Controller
 {
@@ -52,7 +53,6 @@ class PatientController extends Controller
         //     "Dob"=>'required',
         //     "gridRadios"=>'required',
         
-
         // ]);
         if ($request->hasfile('profi')) 
         {

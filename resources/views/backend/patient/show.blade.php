@@ -17,7 +17,8 @@
   <thead class="thead-light">
     <tr>
       <th scope="col">Name</th>
-      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
       <th scope="col">Qualify Photo</th>
       <th scope="col">Gender</th>
       <th scope="col">Email</th>
@@ -26,8 +27,9 @@
   <tbody>
     <tr>
       <td>{{$patients->user->name}}</td>
-      <td>{{$patients->user->email}}</td>
-      <td><img src="{{asset($patients->profile)}}" class="img-fluid w-25"></td>
+      <td>{{$patients->phone}}</td>
+      <td>{{$patients->address}}</td>
+      <td><img src="{{asset($patients->profile)}}" class="img-fluid w-25 "></td>
       <td>{{$patients->gender}}</td>
       <td>{{$patients->user->email}}</td>
     </tr>

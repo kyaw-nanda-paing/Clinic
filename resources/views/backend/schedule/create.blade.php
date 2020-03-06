@@ -6,12 +6,24 @@
 	@csrf
 	<div class="container">
 		<div class="form-group">
-			<label for="exampleInputDate"> Date</label>
-			<input type="date" name="date" class="form-control" id="exampleInputDate" aria-describedby="emailHelp">
+			<label for="exampleInputDate"> Choose Day </label>
+			<select name="day" id="exampleInputDate" class="form-control">
+				<option value="Sunday">Sunday</option>
+				<option value="Monday">Monday</option>
+				<option value="Tuesday">Tuesday</option>
+				<option value="Wednesday">Wednesday</option>
+				<option value="Thursday">Thursday</option>
+				<option value="Friday">Friday</option>
+				<option value="Saturday">Saturday</option>
+			</select>
 		</div>
 		<div class="form-group">
-			<label for="exampleInputTime"> Time </label>
-			<input type="time" name="time" class="file-control" id="exampleInputTime">
+			<label for="exampleInputTime1"> Start - Time </label>
+			<input type="time" name="start_time" class="form-control" id="exampleInputTime1">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputTime2"> End - Time </label>
+			<input type="time" name="end_time" class="form-control" id="exampleInputTime2">
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2">Choose Doctor</label>

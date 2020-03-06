@@ -22,9 +22,4 @@ class Doctor extends Model
       {
       	return $this->hasMany('App\Schedule');
       }
-
-      public function booking($value='')
-      {
-      	return $this->hasMany('App\Booking');
-      }
 }

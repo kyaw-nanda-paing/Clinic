@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Hello World</title>
+    <title>Clnic</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('clinic_frontend/css/bootstrap.min.css')}}">
@@ -17,6 +18,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{asset('clinic_frontend/style.css')}}">
+    <script src="{{asset('clinic_frontend/js/jquery.min.js')}}"></script>
+
     <script src="{{asset('clinic_frontend/js/custom.js')}}"></script>
 </head>
 <body>
@@ -148,7 +151,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien.</p>
 
                             <p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script></script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                         </div><!-- .foot-about -->
                     </div><!-- .col -->
@@ -192,5 +195,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script type='text/javascript' src="{{asset('clinic_frontend/js/jquery.countTo.min.js')}}"></script>
     <script type='text/javascript' src="{{asset('clinic_frontend/js/jquery.barfiller.js')}}"></script>
     <script type='text/javascript' src="{{asset('clinic_frontend/js/custom.js')}}"></script>
+    @yield('script')
 </body>
 </html>

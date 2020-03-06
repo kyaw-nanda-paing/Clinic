@@ -45,7 +45,7 @@
   <div class="form-group row">
     <label for="inputName" class="col-sm-2 col-form-label">Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputName" name="name" value="{{($patients->user->name)}}">
+      <input type="text" class="form-control" id="inputName" name="name" value="{{($patients->user->name)}}" readonly>
       @if ($errors->any()) 
       <span class="help-block text-danger is-invalid" role="alert">{{ $errors->first('name') }}</span>
       @endif
@@ -101,7 +101,7 @@
   <div class="form-group row">
     <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail" name="email" value="{{$patients->user->email}}">
+      <input type="email" class="form-control" id="inputEmail" name="email" value="{{$patients->user->email}}" readonly>
       @if ($errors->any()) 
       <span class="help-block text-danger is-invalid" role="alert">{{ $errors->first('email') }}</span>
       @endif

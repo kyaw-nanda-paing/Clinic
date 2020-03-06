@@ -7,6 +7,7 @@ use App\Doctor;
 use App\Patient;
 use App\Booking;
 use App\Schedule;
+use App\Degree;
 
 
 class FrontController extends Controller
@@ -17,7 +18,7 @@ class FrontController extends Controller
     	$schedules=Schedule::all();
     	$bookings=Booking::all();
 
-    	return view('frontend.index', compact('doctors','schedules','bookings'));
+    	return view('frontend', compact('doctors','schedules','bookings'));
     }
 
     // public function register($value='')
@@ -40,5 +41,15 @@ class FrontController extends Controller
         $bookings=Booking::all();
 
         return view('frontend.patient', compact('patients','bookings'));
+    }
+
+    public function schedule($value='')
+    {
+        $schedules=Schedule::all();
+        $bookings=Booking::all();
+        $degrees=Degree::all();
+        $doctors=Doctor::all();
+
+        return view('frontend.schedule', compact('bookings','schedules','degrees','doctors'));
     }
 }

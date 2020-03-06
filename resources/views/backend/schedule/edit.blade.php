@@ -39,20 +39,35 @@
   <div class="form-group row">
     <label for="inputName" class="col-sm-2 col-form-label">Date</label>
     <div class="col-sm-10">
-      <input type="date" class="form-control" id="inputDate" name="date" value="{{($schedules->date)}}">
+      <select name="day" id="exampleInputDate" class="form-control">
+        <option>{{($schedules->day)}}</option>
+        <option value="Sunday">Sunday</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+      </select>
     </div>
   </div>
   
   <div class="form-group row">
-    <label for="inputTime" class="col-sm-2 col-form-label">Time</label>
+    <label for="inputTime" class="col-sm-2 col-form-label">Start - Time</label>
     <div class="col-sm-10">
-      <input type="time" class="form-control" id="inputTime" name="time" value="{{($schedules->time)}}">
+      <input type="time" class="form-control" id="inputTime" name="start_time" value="{{($schedules->start_time)}}">
     </div>
   </div>
+  <div class="form-group row">
+      <label for="exampleInputTime2" class="col-sm-2 col-form-label"> End - Time </label>
+      <div class="col-sm-10">
+      <input type="time" name="end_time" class="form-control" id="exampleInputTime2" value="{{($schedules->end_time)}}">
+    </div>
+    </div>
     <div class="form-group row">
     <label for="inputTime" class="col-sm-2 col-form-label">Doctor Name</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="inputNumber" name="doctor_id" value="{{($schedules->doctor_id)}}">
+      <input type="text" class="form-control" id="inputNumber" name="doctor" value="{{($schedules->doctor_id)}}">
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Update</button>
