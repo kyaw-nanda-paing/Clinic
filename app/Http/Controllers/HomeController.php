@@ -24,5 +24,11 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+
+        // $schedules=Schedule::all();
+        // $bookings=Booking::all();
+        // $degrees=Degree::all();
+        // $doctors=Doctor::all();
+        // return view('backend.schedule.index', compact('bookings','schedules','degrees','doctors'));
     }
 }

@@ -22,4 +22,9 @@ class Doctor extends Model
       {
       	return $this->hasMany('App\Schedule');
       }
+
+      public function schedules()
+      {
+        return $this->belongsTo('App\Schedule');
+      }
 }

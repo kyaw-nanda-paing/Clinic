@@ -35,14 +35,12 @@
                         <nav class="site-navigation d-flex justify-content-end align-items-center">
                             <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-items-center">
                                 <li class="current-menu-item"><a href="{{route('index')}}">Home</a></li>
-                                <li><a href="{{route('doctor')}}">About us</a></li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="news.html">News</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-
-                                <li class="call-btn button gradient-bg mt-3 mt-md-0">
-                                    <a class="d-flex justify-content-center align-items-center" href="#"><img src="images/emergency-call.png"> +34 586 778 8892</a>
-                                </li>
+                                <li><a href="">About us</a></li>
+                                <li><a href="{{route('doctorlist')}}">Doctors</a></li>
+                                <li><a href="{{route('bookingschedule')}}">Booking</a></li>
+                                <li><a href="{{route('patientbooking')}}">Your Booking</a></li>
+                                <li><a href="{{route('doctorbooking')}}">Patient's Booking</a></li>
+                                <li><a href="">Contact</a></li>
                             </ul>
                         </nav><!-- .site-navigation -->
 

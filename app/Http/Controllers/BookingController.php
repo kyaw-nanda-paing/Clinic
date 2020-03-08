@@ -41,7 +41,7 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request )
     {
         // dd($request);
         $request->validate([
@@ -58,16 +58,35 @@ class BookingController extends Controller
         $token_no = sprintf('%04d',$num);
         
        }
+       $count = Booking::all()->count();
+       $pid = request('pid');
+       $booking = Booking::where('patient_id',$pid)->first();
+       
+        //dd(Booking::findOrFail($pid));
+      // dd($booking);
+       if ($count >= 10) {
+       
+           # code...
+        return redirect()->route('bookingschedule')->with('status1','Booking Limit is Full!!!');
+       }elseif ($booking) {
+           # code...
+        return redirect()->route('bookingschedule')->with('status','Already Booked!!!');
+        // return redirect()->route('bookingschedule')->with('status','Booking Limit is Full!!!');
+       }
+       else{
 
-       $bookings=New Booking;
-       // dd(Auth::user()->patient);
-       $bookings->patient_id=Auth::user()->patient->id;
-       $bookings->schedule_id=request('time');
-       $bookings->note=request('note');
-       $bookings->token_no=$token_no;
-       $bookings->save();
+        
+           $bookings=New Booking;
+           // dd(Auth::user()->patient);
+           $bookings->patient_id=Auth::user()->patient->id;
+           $bookings->schedule_id=request('schedule_id');
+           $bookings->note=request('note');
+           $bookings->token_no=$token_no;
+           $bookings->save();
 
-       return redirect()->route('booking.index');
+           return redirect()->route('patientbooking');
+       }
+   
     }
 
     /**
@@ -112,6 +131,8 @@ class BookingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $booking = Booking::find($id);
+        $booking->delete();
+        return redirect()->route('patientbooking');
     }
 }

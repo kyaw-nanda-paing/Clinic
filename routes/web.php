@@ -38,16 +38,15 @@ Route::resource('booking','BookingController');
 
 
 
-
-
-
 Route::get('frontend','FrontController@index')->name('index');
+Route::get('contact','FrontController@contact')->name('contact');
 // Route::get('register','FrontController@register')->name('patient');
-// Route::get('user_booking','FrontController@bookng')->name('booking');
+Route::get('doctorbooking','FrontController@booking')->name('doctorbooking');
+Route::get('patientbooking','FrontController@patientbooking')->name('patientbooking');
 // Route::get('contact','FrontController@contact')->name('contact');
-Route::get('doctor_list','FrontController@doctor')->name('doctor');
-Route::get('patient_list','FrontController@patient')->name('patient');
-Route::get('schedule_list','FrontController@schedule')->name('schedule');
+Route::get('doctorlist','FrontController@doctor')->name('doctorlist');
+Route::get('patientlist','FrontController@patient')->name('patientlist');
+Route::get('bookingschedule','FrontController@schedule')->name('bookingschedule');
 // Route::get('about','FrontController@about')->name('about');
 Route::get('getSchedule/{id}','ScheduleController@getSchedule');
 

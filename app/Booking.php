@@ -13,6 +13,7 @@ class Booking extends Model
       	return $this->belongsTo('App\Patient');
       }
 
+
       public function schedule($value='')
       {
       	return $this->belongsTo('App\Schedule');
