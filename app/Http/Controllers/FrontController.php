@@ -21,7 +21,7 @@ class FrontController extends Controller
     	$schedules=Schedule::all();
     	$bookings=Booking::all();
 
-    	return view('frontend', compact('doctors','schedules','bookings'));
+    	return view('frontend.index', compact('doctors','schedules','bookings'));
     }
 
     // public function register($value='')
@@ -29,6 +29,12 @@ class FrontController extends Controller
     // 	$patients=Patient::all();
     // 	return view('frontend.register', compact('patients'));
     // }
+
+    public function about($value='')
+    {
+
+        return view('frontend.about');
+    }
 
     public function doctor($value='')
     {

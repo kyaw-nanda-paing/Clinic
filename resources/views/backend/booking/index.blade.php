@@ -8,9 +8,6 @@
 			<h6 class="m-0 font-weight-bold text-primary"> Booking List</h6>
 
 		</div>
-		<div class="col-2">
-			<a href="" class="btn btn-outline-success btn-block"><i class="fas fa-plus"></i>Add New</a>
-		</div>
 
 	</div>
 </div>

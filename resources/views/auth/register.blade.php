@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register For Patient') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('patient.store') }}">
+                    <form method="POST" action="{{ route('patient.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">

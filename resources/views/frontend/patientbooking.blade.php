@@ -33,11 +33,11 @@
 					<td>{{$row->token_no}}</td>
 
 
-					<td><a href="" class="btn btn-success text-dark">I'm Book</a>
+					<td>
 						<form method="post" action="{{route('booking.destroy',$row->id)}}" class="d-inline-flex"onsubmit="return confirm('Are You Sure To Want To Delete?')">
 							@csrf
 							@method('DELETE')
-							<button type="submit"class="btn btn-danger">No</button>
+							<button type="submit"class="btn btn-danger">Cancel</button>
 						</form>
 					</td>
 

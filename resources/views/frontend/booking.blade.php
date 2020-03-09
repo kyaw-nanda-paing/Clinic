@@ -33,8 +33,7 @@
 			<td>{{$row1->token_no}}</td>
 
 
-			<td><a href="" class="btn btn-success">Detail</a>
-				<a href="" class="btn btn-warning">Edit</a>
+			<td>
 				<form method="post" action="" class="d-inline-flex"onsubmit="return confirm('Are You Sure To Want To Delete?')">
 					@csrf
 					@method('DELETE')

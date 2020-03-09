@@ -11,9 +11,6 @@
 		<div class="col-2">
 			<a href="{{route('doctor.create')}}" class="btn btn-outline-success btn-block"><i class="fas fa-plus"></i>Add New</a>
 		</div>
-		<div class="col-2">
-			<a href="{{route('frontend.booking')}}" class="btn btn-outline-success btn-block"><i class="fas fa-plus"></i>Booking Lists</a>
-		</div>
 
 	</div>
 </div>

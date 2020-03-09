@@ -625,7 +625,7 @@ ul.tabs-nav .tab-nav.active {
 --------------------------------*/
 .subscribe-banner {
     padding: 80px 0;
-    background: url("images/subscribe-bg.png") no-repeat center;
+    background-color: #18a3eb;
     background-size: cover;
     text-align: center;
 }

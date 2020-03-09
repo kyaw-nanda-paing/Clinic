@@ -48,16 +48,13 @@ class BookingController extends Controller
             "note"=>'required'
             ]);
        $book = Booking::orderBy('id','desc')->first();
-
-       if($book == null)
-       {
-        $token_no = '0001';
-       }
-       else{
-        $num = intval($book->token_no)+1;
-        $token_no = sprintf('%04d',$num);
-        
-       }
+       $bookings=Booking::where('schedule_id',request('schedule_id'))->orderBy('id','DESC')->first();
+      if(!empty($bookings->token_no)){
+         $num = intval($bookings->token_no)+1;
+          $token_no = sprintf('%04d',$num);
+      }else{
+        $token_no='0001';
+      }
        $count = Booking::all()->count();
        $pid = request('pid');
        $booking = Booking::where('patient_id',$pid)->first();

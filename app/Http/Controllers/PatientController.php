@@ -9,6 +9,7 @@ use App\User;
 use App\Patient;
 use Spatie\Permission\Models\Role;
 use Auth;
+use Illuminate\Support\Facades\URL;
 
 class PatientController extends Controller
 {
@@ -81,8 +82,17 @@ class PatientController extends Controller
        $patients->save();
        
        $user->assignRole('Patient');
+        if (app('router')->getRoutes()->match(app('request')->create(URL::previous()))->getName()=='patient.create') 
+        {
+            return redirect()->route('patient.index');
+        }else
+        {
+          Auth::loginUsingId($user->id);
 
-       return redirect()->route('patient.index');
+          return redirect()->route('patientlist');
+        }
+
+     //  return redirect()->route('patient.index');
    }
 
     /**
